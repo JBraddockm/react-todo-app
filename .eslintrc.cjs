@@ -9,7 +9,7 @@ module.exports = {
     'plugin:prettier/recommended',
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
-  parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
+  parserOptions: { ecmaVersion: 11, sourceType: 'module' },
   settings: { react: { version: '18.2' } },
   plugins: ['react-refresh', 'simple-import-sort'],
   rules: {
@@ -20,13 +20,14 @@ module.exports = {
       { allowConstantExport: true },
     ],
     'simple-import-sort/imports': 'error',
-    'simple-import-sort/exports': 'error'
+    'simple-import-sort/exports': 'error',
   },
   "overrides": [
-    // override "simple-import-sort" config
     {
       "files": ["*.js", "*.jsx", "*.ts", "*.tsx"],
       "rules": {
+        'linebreak-style': ['error', 'unix'],
+        // override "simple-import-sort" config
         "simple-import-sort/imports": [
           "error",
           {
