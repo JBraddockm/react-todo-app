@@ -4,6 +4,7 @@ import TodoForm from './TodoForm.jsx';
 import TodoHeader from './TodoHeader.jsx';
 import TodoList from './TodoList.jsx';
 
+// TODO Use context to avoid props drilling
 export default function Todo() {
   const [todos, setTodos] = useState([]);
   const completedTodos = todos.filter((todo) => todo.isDone === true).length;
