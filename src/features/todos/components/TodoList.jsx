@@ -1,7 +1,7 @@
 import TodoItem from './TodoItem.jsx';
 
 export default function TodoList({ todos, setTodos }) {
-  const sortedTodos = todos.slice().sort((a, b) => Number(a.isDone) - Number(b.isDone));
+  const sortedTodos = todos.sort((a, b) => a.isDone - b.isDone);
 
   return (
     <>
