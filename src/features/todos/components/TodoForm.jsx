@@ -1,33 +1,23 @@
 import { useState } from 'react';
+import TodoInputIcon from 'src/components/SVGs/TodoInputIcon.jsx';
 
 export default function TodoForm({ todos, setTodos }) {
-  const [todo, setTodo] = useState({ id: 1, name: '', isDone: false });
-  const [nextId, setNextId] = useState(1);
+  const nextSequence = todos.length + 1;
+  const [todo, setTodo] = useState({ id: 0, name: '', isDone: false });
+  const [nextId, setNextId] = useState(() => nextSequence);
 
   function handleFormSubmit(e) {
     e.preventDefault();
-    setTodo({ id: nextId, name: '', isDone: false });
     setTodos([todo, ...todos]);
     setNextId(nextId + 1);
+    setTodo({ id: nextId, name: '', isDone: false });
   }
   return (
     <>
       <form
         onSubmit={(e) => handleFormSubmit(e)}
         className="mt-2 flex h-8 w-full items-center rounded px-2 text-sm font-medium">
-        <svg
-          className="h-5 w-5 fill-current text-gray-400"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-          />
-        </svg>
+        <TodoInputIcon />
         <input
           className="ml-4 h-8 flex-grow bg-transparent font-medium focus:outline-none"
           type="text"
