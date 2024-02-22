@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import TodoInputIcon from 'src/components/SVGs/TodoInputIcon.jsx';
+import useTodoContext from 'src/features/todos/hooks/useTodoContext.js';
 
-export default function TodoForm({ todos, setTodos }) {
+export default function TodoForm() {
+  const { todos, setTodos } = useTodoContext();
   const nextSequence = todos.length + 1;
   const [todo, setTodo] = useState({ id: 0, name: '', isDone: false });
   const [nextId, setNextId] = useState(() => nextSequence);

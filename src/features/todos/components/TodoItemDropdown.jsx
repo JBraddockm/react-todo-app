@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import TodoDeleteIcon from 'src/components/SVGs/TodoDeleteIcon.jsx';
 import TodoDropdownOptionIcon from 'src/components/SVGs/TodoDropdownOptionIcon.jsx';
+import useTodoContext from 'src/features/todos/hooks/useTodoContext.js';
 
-export default function TodoItemDropdown({ todo, todos, setTodos, isOptionsVisible }) {
+export default function TodoItemDropdown({ todo, isOptionsVisible }) {
+  const { todos, setTodos } = useTodoContext();
   const [isOpen, setIsOpen] = useState(false);
 
   function handleTodoDelete(id) {
