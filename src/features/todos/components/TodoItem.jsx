@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import TodoCompleteCheckBox from 'src/components/SVGs/TodoCompleteCheckBox.jsx';
 import useTodoContext from 'src/features/todos/hooks/useTodoContext.js';
 
@@ -6,7 +5,6 @@ import TodoItemDropdown from './TodoItemDropdown.jsx';
 
 export default function TodoItem({ todo }) {
   const { todos, setTodos } = useTodoContext();
-  const [isOptionsVisible, setsOptionsVisible] = useState(false);
 
   function handleTodoComplete(id) {
     setTodos(
@@ -40,9 +38,7 @@ export default function TodoItem({ todo }) {
           checked={todo.isDone}
         />
         <div
-          tabIndex={0} // TODO change to onClick for better user experience.
-          onMouseEnter={() => setsOptionsVisible(!isOptionsVisible)}
-          onMouseLeave={() => setsOptionsVisible(false)}
+          tabIndex={0}
           className="todo-item flex h-10 cursor-pointer items-center rounded px-2 hover:bg-gray-100 dark:hover:bg-gray-900">
           <span
             tabIndex={0}
@@ -52,12 +48,7 @@ export default function TodoItem({ todo }) {
             <TodoCompleteCheckBox />
           </span>
           <span className="ml-4 mr-auto text-sm hover:underline">{todo.name}</span>
-          <TodoItemDropdown
-            todo={todo}
-            todos={todos}
-            setTodos={setTodos}
-            isOptionsVisible={isOptionsVisible}
-          />
+          <TodoItemDropdown todo={todo} />
         </div>
       </li>
     </>

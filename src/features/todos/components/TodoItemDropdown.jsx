@@ -1,26 +1,39 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import TodoDeleteIcon from 'src/components/SVGs/TodoDeleteIcon.jsx';
 import TodoDropdownOptionIcon from 'src/components/SVGs/TodoDropdownOptionIcon.jsx';
 import useTodoContext from 'src/features/todos/hooks/useTodoContext.js';
 
-export default function TodoItemDropdown({ todo, isOptionsVisible }) {
+export default function TodoItemDropdown({ todo }) {
   const { todos, setTodos } = useTodoContext();
   const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  const handleTodoDropdownClick = (e) => {
+    e.stopPropagation();
+    setIsOpen((prevState) => !prevState);
+  };
+  const handleClickOutside = (e) => {
+    if (!dropdownRef.current.contains(e.target)) {
+      setIsOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('click', handleClickOutside);
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
 
   function handleTodoDelete(id) {
     setTodos(todos.filter((item) => item.id !== id));
   }
 
-  useEffect(() => {
-    !isOptionsVisible && setIsOpen(false);
-  }, [isOptionsVisible]);
-
   return (
-    <div className={`${isOptionsVisible ? `inline-block` : `hidden`} relative`}>
+    <div className="todo-dropdown relative inline-block">
       <button
-        onClick={() => {
-          setIsOpen(!isOpen);
-        }}
+        ref={dropdownRef}
+        onClick={(e) => handleTodoDropdownClick(e)}
         type="button"
         className="inline-flex h-10 w-full justify-center text-sm shadow-sm focus:border-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-700">
         <TodoDropdownOptionIcon />
