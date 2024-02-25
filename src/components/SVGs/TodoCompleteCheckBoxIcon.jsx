@@ -1,4 +1,4 @@
-export default function TodoCompleteCheckBox() {
+export default function TodoCompleteCheckBoxIcon() {
   return (
     <>
       <svg
