@@ -28,6 +28,18 @@ export default function TodoItem({ todo }) {
     }
   }
 
+  function handleTodoEdit(e, id) {
+    setTodos(
+      todos.map((todo) => {
+        if (todo.id === id) {
+          return { ...todo, name: e.target.value };
+        } else {
+          return todo;
+        }
+      })
+    );
+  }
+
   function handleTodoDelete(id) {
     setTodos(todos.filter((todo) => todo.id !== id));
   }
@@ -76,7 +88,8 @@ export default function TodoItem({ todo }) {
               isTodoModalOpen,
               setIsTodoModalOpen,
               handleTodoComplete,
-              handleTodoDelete
+              handleTodoDelete,
+              handleTodoEdit
             }}
           />
         )}

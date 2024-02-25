@@ -3,7 +3,6 @@ import CloseIcon from 'src/components/SVGs/CloseIcon.jsx';
 import TodoCompleteCheckBoxIcon from 'src/components/SVGs/TodoCompleteCheckBoxIcon.jsx';
 import TodoDeleteIcon from 'src/components/SVGs/TodoDeleteIcon.jsx';
 import TodoDropdownOptionIcon from 'src/components/SVGs/TodoDropdownOptionIcon.jsx';
-import useTodoContext from 'src/features/todos/hooks/useTodoContext.js';
 import useClickOutside from 'src/hooks/useClickOutside.jsx';
 
 export default function TodoItemModal({
@@ -11,25 +10,13 @@ export default function TodoItemModal({
   isTodoModalOpen,
   setIsTodoModalOpen,
   handleTodoComplete,
-  handleTodoDelete
+  handleTodoDelete,
+  handleTodoEdit
 }) {
-  const { todos, setTodos } = useTodoContext();
   const [isOptionMoreOpen, setIsOptionMoreOpen] = useState(false);
   const optionMoreRef = useRef(null);
 
   useClickOutside(optionMoreRef, setIsOptionMoreOpen);
-
-  function handleTodoEdit(e, id) {
-    setTodos(
-      todos.map((todo) => {
-        if (todo.id === id) {
-          return { ...todo, name: e.target.value };
-        } else {
-          return todo;
-        }
-      })
-    );
-  }
 
   return (
     <>
