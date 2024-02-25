@@ -71,11 +71,13 @@ export default function TodoItem({ todo }) {
         </div>
         {isEditing && (
           <TodoItemModal
-            todo={todo}
-            isTodoModalOpen={isTodoModalOpen}
-            setIsTodoModalOpen={setIsTodoModalOpen}
-            handleTodoComplete={handleTodoComplete}
-            handleTodoDelete={handleTodoDelete}
+            {...{
+              todo,
+              isTodoModalOpen,
+              setIsTodoModalOpen,
+              handleTodoComplete,
+              handleTodoDelete
+            }}
           />
         )}
       </li>
