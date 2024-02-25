@@ -8,7 +8,7 @@
     }
 
     input[type=checkbox]:checked+.todo-item span:nth-of-type(2) {
-        @apply line-through text-gray-500;
+        @apply line-through text-gray-500 dark:text-gray-400;
     }
 }
 
