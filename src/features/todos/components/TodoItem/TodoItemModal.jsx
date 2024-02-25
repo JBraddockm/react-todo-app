@@ -104,7 +104,7 @@ export default function TodoItemModal({
                 />
                 <div
                   tabIndex={0}
-                  className="todo-item flex h-10 cursor-pointer items-center rounded px-2">
+                  className="todo-item flex h-10 cursor-pointer items-center rounded">
                   <span
                     tabIndex={0}
                     onClick={() => handleTodoComplete(todo.id)}
