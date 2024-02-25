@@ -1,12 +1,15 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import TodoDeleteIcon from 'src/components/SVGs/TodoDeleteIcon.jsx';
 import TodoDropdownOptionIcon from 'src/components/SVGs/TodoDropdownOptionIcon.jsx';
 import useTodoContext from 'src/features/todos/hooks/useTodoContext.js';
+import useClickOutside from 'src/hooks/useClickOutside.jsx';
 
-export default function TodoItemDropdown({ todo }) {
+export default function TodoItemDropdown({ todo, handleTodoDelete }) {
   const { todos, setTodos } = useTodoContext();
   const dropdownRef = useRef(null);
   const [openDropdownId, setOpenDropdownId] = useState(null);
+
+  useClickOutside(dropdownRef, setOpenDropdownId);
 
   const handleTodoDropdownClick = () => {
     if (openDropdownId === todo.id) {
@@ -16,27 +19,10 @@ export default function TodoItemDropdown({ todo }) {
     }
   };
 
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (!dropdownRef.current.contains(e.target)) {
-        setOpenDropdownId(null);
-      }
-    };
-
-    document.addEventListener('click', handleClickOutside);
-    return () => {
-      document.removeEventListener('click', handleClickOutside);
-    };
-  }, [setOpenDropdownId]);
-
   function handleKeyDown(event, id) {
     if (event.key === 'Enter') {
       setOpenDropdownId(id);
     }
-  }
-
-  function handleTodoDelete(id) {
-    setTodos(todos.filter((item) => item.id !== id));
   }
 
   return (
@@ -48,7 +34,7 @@ export default function TodoItemDropdown({ todo }) {
       <button
         onClick={() => handleTodoDropdownClick()}
         type="button"
-        className="inline-flex h-10 w-full justify-center text-sm shadow-sm focus:border-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-700">
+        className="inline-flex h-10 w-full justify-center text-sm focus:border-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-700">
         <TodoDropdownOptionIcon />
       </button>
       {openDropdownId === todo.id && (
