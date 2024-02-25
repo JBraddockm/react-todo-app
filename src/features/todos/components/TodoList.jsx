@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import useTodoContext from 'src/features/todos/hooks/useTodoContext.js';
 
-import TodoItem from './TodoItem.jsx';
+import TodoItem from './TodoItem/TodoItem.jsx';
 
 export default function TodoList() {
   const { todos, setTodos } = useTodoContext();
