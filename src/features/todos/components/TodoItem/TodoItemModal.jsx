@@ -28,6 +28,7 @@ export default function TodoItemModal({
         {isTodoModalOpen && (
           <div className="relative max-h-full w-full max-w-2xl p-4">
             <div className="relative rounded-lg border border-gray-100 bg-white shadow-lg dark:border-gray-800 dark:bg-gray-800">
+              {/* Modal Header */}
               <div className="relative flex items-center justify-between gap-1 rounded-t border-b p-2 dark:border-gray-600 md:p-2">
                 <span className="text-xs">
                   {todo.updatedAt &&
@@ -85,6 +86,7 @@ export default function TodoItemModal({
                   <span className="sr-only">Close modal</span>
                 </button>
               </div>
+              {/* Modal Body */}
               <div className="space-y-4 p-4 md:p-5">
                 <label htmlFor={`todo-${todo.id}`} className="hidden" aria-hidden="true">
                   Complete Task
@@ -110,9 +112,75 @@ export default function TodoItemModal({
                     className="ml-2 h-10 w-full border border-transparent bg-transparent p-2.5 px-2 text-base hover:rounded-lg hover:border-gray-500 focus:rounded-lg focus:bg-gray-50 dark:focus:border-gray-600 dark:focus:bg-gray-700 dark:focus:text-white"
                     value={todo.name}></input>
                 </div>
-                <label
-                  htmlFor="message"
-                  className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
+                <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3">
+                  <div>
+                    <label htmlFor="bucket" className="block text-sm font-medium">
+                      Bucket
+                    </label>
+
+                    <select
+                      name="bucket"
+                      id="bucket"
+                      className="mt-1.5 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400">
+                      <option value="Project name">To do</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label htmlFor="progress" className="block text-sm font-medium">
+                      Progress
+                    </label>
+                    <select
+                      name="progress"
+                      id="progress"
+                      className="mt-1.5 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400">
+                      <option value="Not started">Not started</option>
+                      <option value="In progress">In progress</option>
+                      <option value="Completed">Completed</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label htmlFor="priority" className="block text-sm font-medium">
+                      Priority
+                    </label>
+
+                    <select
+                      name="priority"
+                      id="priority"
+                      className="mt-1.5 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400">
+                      <option value="">Urgent</option>
+                      <option value="JM">Important</option>
+                      <option value="SRV" selected>
+                        Medium
+                      </option>
+                      <option value="JH">Low</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label htmlFor="startDate" className="block text-sm font-medium">
+                      Start Date
+                    </label>
+
+                    <input
+                      type="date"
+                      name="startDate"
+                      className="mt-1.5 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="dueDate" className="block text-sm font-medium">
+                      Due Date
+                    </label>
+
+                    <input
+                      type="date"
+                      name="dueDate"
+                      className="mt-1.5 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+                    />
+                  </div>
+                </div>
+
+                <label htmlFor="message" className="mb-2 block text-sm font-medium">
                   Notes
                 </label>
                 <textarea
@@ -120,20 +188,6 @@ export default function TodoItemModal({
                   rows="4"
                   className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
                   placeholder="Type a description or add notes here..."></textarea>
-              </div>
-              <div className="flex items-center rounded-b border-t border-gray-200 p-4 dark:border-gray-600 md:p-5">
-                <button
-                  data-modal-hide="default-modal"
-                  type="button"
-                  className="rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                  I accept
-                </button>
-                <button
-                  data-modal-hide="default-modal"
-                  type="button"
-                  className="ms-3 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700">
-                  Decline
-                </button>
               </div>
             </div>
           </div>
