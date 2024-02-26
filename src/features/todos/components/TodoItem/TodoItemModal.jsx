@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import dayjs from 'dayjs';
 import {
   CloseIcon,
   TodoCompleteCheckBoxIcon,
@@ -28,6 +29,10 @@ export default function TodoItemModal({
           <div className="relative max-h-full w-full max-w-2xl p-4">
             <div className="relative rounded-lg border border-gray-100 bg-white shadow-lg dark:border-gray-800 dark:bg-gray-800">
               <div className="relative flex items-center justify-between gap-1 rounded-t border-b p-2 dark:border-gray-600 md:p-2">
+                <span className="text-xs">
+                  {todo.updatedAt &&
+                    `Last changed ${dayjs.unix(todo.updatedAt).format('DD/MM/YYYY HH:mm:ss')}`}
+                </span>
                 <div ref={optionMoreRef} className="relative ms-auto inline-flex">
                   <button
                     onClick={() => setIsOptionMoreOpen(!isOptionMoreOpen)}
