@@ -7,7 +7,12 @@ export default function TodoList() {
   const { todos, setTodos } = useTodoContext();
   useEffect(() => {
     const timeoutId = setTimeout(() => {
-      setTodos(todos.slice().sort((a, b) => a.isDone - b.isDone));
+      setTodos(
+        todos
+          .slice()
+          .sort((a, b) => b.id - a.id)
+          .sort((a, b) => a.isDone - b.isDone)
+      );
     }, 1000);
     return () => clearTimeout(timeoutId);
   }, [setTodos, todos]);
