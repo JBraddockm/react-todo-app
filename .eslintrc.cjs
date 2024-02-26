@@ -31,6 +31,7 @@ module.exports = {
     {
       "files": ["*.js", "*.jsx", "*.ts", "*.tsx"],
       "rules": {
+        "no-restricted-imports": ["error", { "patterns": ["src/components/SVGs/*/*"] }],
         'linebreak-style': ['error', 'unix'],
         // override "simple-import-sort" config
         "simple-import-sort/imports": [
