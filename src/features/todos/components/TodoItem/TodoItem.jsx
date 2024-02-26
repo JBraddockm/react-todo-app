@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import dayjs from 'dayjs';
 import { TodoCompleteCheckBoxIcon } from 'src/components/SVGs';
 import TodoItemModal from 'src/features/todos/components/TodoItem/TodoItemModal.jsx';
 import useTodoContext from 'src/features/todos/hooks/useTodoContext.js';
@@ -32,7 +33,7 @@ export default function TodoItem({ todo }) {
     setTodos(
       todos.map((todo) => {
         if (todo.id === id) {
-          return { ...todo, name: e.target.value };
+          return { ...todo, name: e.target.value, updatedAt: dayjs().unix() };
         } else {
           return todo;
         }
