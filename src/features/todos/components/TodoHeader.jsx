@@ -1,4 +1,4 @@
-import TodoHeaderLogo from 'src/components/SVGs/TodoHeaderLogo.jsx';
+import { TodoHeaderLogo } from 'src/components/SVGs';
 
 export default function TodoHeader({ completedTodos, totalTodos }) {
   return (

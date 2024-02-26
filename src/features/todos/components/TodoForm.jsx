@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import TodoInputIcon from 'src/components/SVGs/TodoInputIcon.jsx';
+import { TodoInputIcon } from 'src/components/SVGs';
 import useTodoContext from 'src/features/todos/hooks/useTodoContext.js';
 
 export default function TodoForm() {

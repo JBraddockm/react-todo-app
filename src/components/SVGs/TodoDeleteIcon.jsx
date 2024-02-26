@@ -1,4 +1,4 @@
-export default function TodoDeleteIcon() {
+export function TodoDeleteIcon() {
   return (
     <>
       <svg

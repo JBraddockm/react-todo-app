@@ -1,6 +1,6 @@
 import cn from 'src/utils/utils.js';
 
-export default function TodoDropdownOptionIcon({ className }) {
+export function TodoDropdownOptionIcon({ className }) {
   return (
     <>
       <svg

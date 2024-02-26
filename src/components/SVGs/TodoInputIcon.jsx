@@ -1,4 +1,4 @@
-export default function TodoInputIcon() {
+export function TodoInputIcon() {
   return (
     <>
       <svg

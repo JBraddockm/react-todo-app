@@ -1,8 +1,10 @@
 import { useRef, useState } from 'react';
-import CloseIcon from 'src/components/SVGs/CloseIcon.jsx';
-import TodoCompleteCheckBoxIcon from 'src/components/SVGs/TodoCompleteCheckBoxIcon.jsx';
-import TodoDeleteIcon from 'src/components/SVGs/TodoDeleteIcon.jsx';
-import TodoDropdownOptionIcon from 'src/components/SVGs/TodoDropdownOptionIcon.jsx';
+import {
+  CloseIcon,
+  TodoCompleteCheckBoxIcon,
+  TodoDeleteIcon,
+  TodoDropdownOptionIcon
+} from 'src/components/SVGs';
 import useClickOutside from 'src/hooks/useClickOutside.jsx';
 
 export default function TodoItemModal({

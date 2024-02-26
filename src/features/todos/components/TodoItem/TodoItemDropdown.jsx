@@ -1,6 +1,5 @@
 import { useRef, useState } from 'react';
-import TodoDeleteIcon from 'src/components/SVGs/TodoDeleteIcon.jsx';
-import TodoDropdownOptionIcon from 'src/components/SVGs/TodoDropdownOptionIcon.jsx';
+import { TodoDeleteIcon, TodoDropdownOptionIcon } from 'src/components/SVGs';
 import useTodoContext from 'src/features/todos/hooks/useTodoContext.js';
 import useClickOutside from 'src/hooks/useClickOutside.jsx';
 

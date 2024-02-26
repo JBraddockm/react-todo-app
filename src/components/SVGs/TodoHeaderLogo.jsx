@@ -1,4 +1,4 @@
-export default function TodoHeaderLogo() {
+export function TodoHeaderLogo() {
   return (
     <>
       <svg

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import TodoCompleteCheckBoxIcon from 'src/components/SVGs/TodoCompleteCheckBoxIcon.jsx';
+import { TodoCompleteCheckBoxIcon } from 'src/components/SVGs';
 import TodoItemModal from 'src/features/todos/components/TodoItem/TodoItemModal.jsx';
 import useTodoContext from 'src/features/todos/hooks/useTodoContext.js';
 
