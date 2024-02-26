@@ -23,7 +23,7 @@ export default function TodoItemModal({
   return (
     <>
       <div
-        className={`fixed left-0 right-0 top-0 z-50 flex ${!isTodoModalOpen && `hidden`} h-[calc(100%-1rem)] max-h-full w-full items-center justify-center overflow-y-auto overflow-x-hidden backdrop-blur-sm backdrop-brightness-75 backdrop-opacity-80 md:inset-0`}>
+        className={`fixed left-0 right-0 top-0 z-50 flex ${!isTodoModalOpen && `hidden`} h-[calc(100%-1rem)] max-h-full w-full items-center justify-center overflow-y-auto overflow-x-hidden backdrop-brightness-50 backdrop-opacity-60 md:inset-0`}>
         {isTodoModalOpen && (
           <div className="relative max-h-full w-full max-w-2xl p-4">
             <div className="relative rounded-lg border border-gray-100 bg-white shadow-lg dark:border-gray-800 dark:bg-gray-800">
