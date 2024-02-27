@@ -10,5 +10,13 @@
     input[type=checkbox]:checked+.todo-item span:nth-of-type(2) {
         @apply line-through text-gray-500 dark:text-gray-400;
     }
+    select:not([size]) {
+        background-image: url(data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0ndHJ1ZScgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJyBmaWxsPSdub25lJyB2aWV3Qm94PScwIDAgMTAgNic+IDxwYXRoIHN0cm9rZT0nIzZCNzI4MCcgc3Ryb2tlLWxpbmVjYXA9J3JvdW5kJyBzdHJva2UtbGluZWpvaW49J3JvdW5kJyBzdHJva2Utd2lkdGg9JzInIGQ9J20xIDEgNCA0IDQtNCcvPiA8L3N2Zz4=);
+        background-position: right .75rem center;
+        background-repeat: no-repeat;
+        background-size: .75em .75em;
+        padding-right: 2.5rem;
+        print-color-adjust: exact;
+    }
 }
 

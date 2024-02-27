@@ -121,7 +121,7 @@ export default function TodoItemModal({
                     <select
                       name="bucket"
                       id="bucket"
-                      className="mt-1.5 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400">
+                      className="mt-1 appearance-none block w-full border disabled:cursor-not-allowed disabled:opacity-50 bg-gray-50 border-gray-300 text-gray-900 focus:border-cyan-500 focus:ring-cyan-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-cyan-500 dark:focus:ring-cyan-500 p-2.5 text-sm rounded-lg">
                       <option value="Project name">To do</option>
                     </select>
                   </div>
@@ -132,7 +132,7 @@ export default function TodoItemModal({
                     <select
                       name="progress"
                       id="progress"
-                      className="mt-1.5 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400">
+                      className="mt-1 appearance-none block w-full border disabled:cursor-not-allowed disabled:opacity-50 bg-gray-50 border-gray-300 text-gray-900 focus:border-cyan-500 focus:ring-cyan-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-cyan-500 dark:focus:ring-cyan-500 p-2.5 text-sm rounded-lg">
                       <option value="Not started">Not started</option>
                       <option value="In progress">In progress</option>
                       <option value="Completed">Completed</option>
@@ -146,7 +146,7 @@ export default function TodoItemModal({
                     <select
                       name="priority"
                       id="priority"
-                      className="mt-1.5 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400">
+                      className="mt-1 appearance-none block w-full border disabled:cursor-not-allowed disabled:opacity-50 bg-gray-50 border-gray-300 text-gray-900 focus:border-cyan-500 focus:ring-cyan-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-cyan-500 dark:focus:ring-cyan-500 p-2.5 text-sm rounded-lg">
                       <option value="">Urgent</option>
                       <option value="JM">Important</option>
                       <option value="SRV" selected>
