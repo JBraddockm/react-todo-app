@@ -5,7 +5,6 @@ import useTodoContext from 'src/features/todos/hooks/useTodoContext.js';
 
 export default function TodoForm() {
   const { todos, setTodos } = useTodoContext();
-  const nextSequence = todos.length + 1;
   const [todo, setTodo] = useState({
     id: 0,
     name: '',
@@ -13,12 +12,12 @@ export default function TodoForm() {
     createdAt: null,
     updatedAt: null
   });
-  const [nextId, setNextId] = useState(() => nextSequence);
+  let nextId = todos.length + 1;
 
   function handleFormSubmit(e) {
     e.preventDefault();
     setTodos([todo, ...todos]);
-    setNextId(nextId + 1);
+    nextId += 1;
     setTodo({ ...todo, id: nextId, name: '', isDone: false });
   }
   return (
