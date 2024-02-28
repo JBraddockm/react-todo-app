@@ -30,7 +30,7 @@ export default function TodoItemModal({
             <div className="relative rounded-lg border border-gray-100 bg-white shadow-lg dark:border-gray-800 dark:bg-gray-800">
               {/* Modal Header */}
               <div className="relative flex items-center justify-between gap-1 rounded-t border-b p-2 dark:border-gray-600 md:p-2">
-                <span className="text-xs">
+                <span className="text-xs text-gray-500 dark:text-gray-400">
                   {todo.updatedAt &&
                     `Last changed ${dayjs.unix(todo.updatedAt).format('DD/MM/YYYY HH:mm:ss')}`}
                 </span>
@@ -38,7 +38,7 @@ export default function TodoItemModal({
                   <button
                     onClick={() => setIsOptionMoreOpen(!isOptionMoreOpen)}
                     type="button"
-                    className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white">
+                    className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-gray-600 hover:bg-gray-200 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white">
                     <TodoDropdownOptionIcon className={`rotate-90`} />
                     <span className="sr-only">Todo Options</span>
                   </button>
@@ -83,7 +83,7 @@ export default function TodoItemModal({
                   type="button"
                   className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white">
                   <CloseIcon />
-                  <span className="sr-only">Close modal</span>
+                  <span className="sr-only text-gray-500 dark:text-white">Close modal</span>
                 </button>
               </div>
               {/* Modal Body */}
@@ -109,44 +109,50 @@ export default function TodoItemModal({
                   </span>
                   <input
                     onChange={(e) => handleTodoEdit(e, todo.id)}
-                    className="ml-2 h-10 w-full border border-transparent bg-transparent p-2.5 px-2 text-base hover:rounded-lg hover:border-gray-500 focus:rounded-lg focus:bg-gray-50 dark:focus:border-gray-600 dark:focus:bg-gray-700 dark:focus:text-white"
+                    className="ml-2 h-10 w-full border border-transparent bg-transparent p-2.5 px-2 text-sm text-gray-500 hover:rounded-lg hover:border-gray-500 focus:rounded-lg focus:bg-gray-50 dark:text-gray-400 dark:focus:border-gray-600 dark:focus:bg-gray-700 dark:focus:text-white"
                     value={todo.name}></input>
                 </div>
                 <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3">
                   <div>
-                    <label htmlFor="bucket" className="block text-sm font-medium">
+                    <label
+                      htmlFor="bucket"
+                      className="block text-sm font-medium text-gray-500 dark:text-gray-400">
                       Bucket
                     </label>
 
                     <select
                       name="bucket"
                       id="bucket"
-                      className="mt-1 appearance-none block w-full border disabled:cursor-not-allowed disabled:opacity-50 bg-gray-50 border-gray-300 text-gray-900 focus:border-cyan-500 focus:ring-cyan-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-cyan-500 dark:focus:ring-cyan-500 p-2.5 text-sm rounded-lg">
+                      className="mt-1 block w-full appearance-none rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-cyan-500 focus:ring-cyan-500 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:placeholder-gray-400 dark:focus:border-cyan-500 dark:focus:ring-cyan-500">
                       <option value="Project name">To do</option>
                     </select>
                   </div>
                   <div>
-                    <label htmlFor="progress" className="block text-sm font-medium">
+                    <label
+                      htmlFor="progress"
+                      className="block text-sm font-medium text-gray-500 dark:text-gray-400">
                       Progress
                     </label>
                     <select
                       name="progress"
                       id="progress"
-                      className="mt-1 appearance-none block w-full border disabled:cursor-not-allowed disabled:opacity-50 bg-gray-50 border-gray-300 text-gray-900 focus:border-cyan-500 focus:ring-cyan-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-cyan-500 dark:focus:ring-cyan-500 p-2.5 text-sm rounded-lg">
+                      className="mt-1 block w-full appearance-none rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-cyan-500 focus:ring-cyan-500 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:placeholder-gray-400 dark:focus:border-cyan-500 dark:focus:ring-cyan-500">
                       <option value="Not started">Not started</option>
                       <option value="In progress">In progress</option>
                       <option value="Completed">Completed</option>
                     </select>
                   </div>
                   <div>
-                    <label htmlFor="priority" className="block text-sm font-medium">
+                    <label
+                      htmlFor="priority"
+                      className="block text-sm font-medium text-gray-500 dark:text-gray-400">
                       Priority
                     </label>
 
                     <select
                       name="priority"
                       id="priority"
-                      className="mt-1 appearance-none block w-full border disabled:cursor-not-allowed disabled:opacity-50 bg-gray-50 border-gray-300 text-gray-900 focus:border-cyan-500 focus:ring-cyan-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-cyan-500 dark:focus:ring-cyan-500 p-2.5 text-sm rounded-lg">
+                      className="mt-1 block w-full appearance-none rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-cyan-500 focus:ring-cyan-500 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:placeholder-gray-400 dark:focus:border-cyan-500 dark:focus:ring-cyan-500">
                       <option value="">Urgent</option>
                       <option value="JM">Important</option>
                       <option value="SRV" selected>
@@ -157,36 +163,44 @@ export default function TodoItemModal({
                   </div>
 
                   <div>
-                    <label htmlFor="startDate" className="block text-sm font-medium">
+                    <label
+                      htmlFor="startDate"
+                      className="block text-sm font-medium text-gray-500 dark:text-gray-400">
                       Start Date
                     </label>
 
                     <input
+                      id="startDate"
                       type="date"
                       name="startDate"
-                      className="mt-1.5 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+                      className="mt-1.5 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-400"
                     />
                   </div>
                   <div>
-                    <label htmlFor="dueDate" className="block text-sm font-medium">
+                    <label
+                      htmlFor="dueDate"
+                      className="block text-sm font-medium text-gray-500 dark:text-gray-400">
                       Due Date
                     </label>
 
                     <input
+                      id="dueDate"
                       type="date"
                       name="dueDate"
-                      className="mt-1.5 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+                      className="mt-1.5 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-400"
                     />
                   </div>
                 </div>
 
-                <label htmlFor="message" className="mb-2 block text-sm font-medium">
+                <label
+                  htmlFor="message"
+                  className="mb-2 block text-sm font-medium text-gray-500 dark:text-gray-400">
                   Notes
                 </label>
                 <textarea
                   id="message"
                   rows="4"
-                  className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+                  className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-400 dark:placeholder-gray-400"
                   placeholder="Type a description or add notes here..."></textarea>
               </div>
             </div>
