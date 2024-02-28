@@ -33,7 +33,7 @@ export default function TodoItemDropdown({ todo, handleTodoDelete }) {
       <button
         onClick={() => handleTodoDropdownClick()}
         type="button"
-        className="inline-flex h-10 w-full justify-center text-sm focus:border-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-700">
+        className="inline-flex h-10 w-full justify-center text-sm text-gray-600 focus:border-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-700 dark:text-gray-300">
         <TodoDropdownOptionIcon />
       </button>
       {openDropdownId === todo.id && (
