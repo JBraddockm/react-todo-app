@@ -48,7 +48,10 @@ export default function TodoItem({ todo }) {
   return (
     <>
       <li className="border-t-[1px] border-gray-600">
-        <label htmlFor={`todo-${todo.id}`} className="hidden" aria-hidden="true">
+        <label
+          htmlFor={`todo-${todo.id}`}
+          className="sr-only text-gray-500 dark:text-white"
+          aria-hidden="true">
           Complete Task
         </label>
         <input
@@ -77,7 +80,7 @@ export default function TodoItem({ todo }) {
               setIsEditing(true);
               setIsTodoModalOpen(true);
             }}
-            className="ml-4 mr-auto text-sm hover:underline">
+            className="ml-4 mr-auto whitespace-nowrap p-4 text-sm font-normal text-gray-500 hover:underline dark:text-gray-400">
             {todo.name}
           </span>
           <TodoItemDropdown todo={todo} handleTodoDelete={handleTodoDelete} />
