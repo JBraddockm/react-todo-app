@@ -11,11 +11,7 @@ export default function TodoItemDropdown({ todo, handleTodoDelete }) {
   useClickOutside(dropdownRef, setOpenDropdownId);
 
   const handleTodoDropdownClick = () => {
-    if (openDropdownId === todo.id) {
-      setOpenDropdownId(null);
-    } else {
-      setOpenDropdownId(todo.id);
-    }
+    setOpenDropdownId((prevId) => (prevId === todo.id ? null : todo.id));
   };
 
   function handleKeyDown(event, id) {
