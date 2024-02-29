@@ -80,7 +80,7 @@ export default function TodoItem({ todo }) {
               setIsEditing(true);
               setIsTodoModalOpen(true);
             }}
-            className="ml-4 mr-auto whitespace-nowrap p-4 text-sm font-normal text-gray-500 hover:underline dark:text-gray-400">
+            className="ml-4 mr-auto truncate whitespace-nowrap p-4 text-sm font-normal text-gray-500 hover:underline dark:text-gray-400 sm:text-clip">
             {todo.name}
           </span>
           <TodoItemDropdown todo={todo} handleTodoDelete={handleTodoDelete} />
