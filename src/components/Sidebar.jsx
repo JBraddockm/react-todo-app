@@ -1,9 +1,21 @@
-export default function Sidebar() {
+import { useState } from 'react';
+
+export default function Sidebar({ toggleSidebarMobile }) {
+  const [openDropdownId, setOpenDropdownId] = useState(null);
+
+  const handleTodoDropdownClick = (e) => {
+    const closestListItem = e.target.closest('li');
+    if (closestListItem) {
+      const dropdownId = closestListItem.getAttribute('id');
+      setOpenDropdownId((prevId) => (prevId === dropdownId ? null : dropdownId));
+    }
+  };
+
   return (
     <>
       <aside
         id="sidebar"
-        className="transition-width fixed left-0 top-0 z-20 flex hidden h-full w-64 flex-shrink-0 flex-col pt-16 font-normal duration-75 lg:flex"
+        className={`fixed left-0 top-0 z-20 flex lg:translate-x-0 ${toggleSidebarMobile ? 'translate-x-0' : '-translate-x-full'} h-full w-64 flex-shrink-0 flex-col pt-16 font-normal duration-500 lg:flex`}
         aria-label="Sidebar">
         <div className="relative flex min-h-0 flex-1 flex-col border-r border-gray-200 bg-white pt-0 dark:border-gray-700 dark:bg-gray-800">
           <div className="flex flex-1 flex-col overflow-y-auto pb-4 pt-5">
@@ -53,7 +65,8 @@ export default function Sidebar() {
                     <span className="ml-3">Dashboard</span>
                   </a>
                 </li>
-                <li>
+
+                <li onClick={(e) => handleTodoDropdownClick(e)} id="dropdown-projects">
                   <button
                     type="button"
                     className="group flex w-full items-center rounded-lg p-2 text-base text-gray-900 transition duration-75 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">
@@ -78,7 +91,8 @@ export default function Sidebar() {
                       />
                     </svg>
                   </button>
-                  <ul id="dropdown-layouts" className="hidden space-y-2 py-2">
+                  <ul
+                    className={`${openDropdownId !== 'dropdown-projects' ? 'hidden' : 'block'} space-y-2 py-2`}>
                     <li>
                       <a
                         href="#"
@@ -88,7 +102,7 @@ export default function Sidebar() {
                     </li>
                   </ul>
                 </li>
-                <li>
+                <li onClick={(e) => handleTodoDropdownClick(e)} id="dropdown-users">
                   <button
                     type="button"
                     className="group flex w-full items-center rounded-lg p-2 text-base text-gray-900 transition duration-75 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">
@@ -117,7 +131,8 @@ export default function Sidebar() {
                       />
                     </svg>
                   </button>
-                  <ul id="dropdown-crud" className="hidden space-y-2 py-2 ">
+                  <ul
+                    className={`${openDropdownId !== 'dropdown-users' ? 'hidden' : 'block'} space-y-2 py-2`}>
                     <li>
                       <a
                         href="#"
@@ -196,7 +211,7 @@ export default function Sidebar() {
         </div>
       </aside>
       <div
-        className="fixed inset-0 z-10 hidden bg-gray-900/50 dark:bg-gray-900/90"
+        className={`fixed inset-0 z-10 ${!toggleSidebarMobile && `hidden`} bg-gray-900/50 dark:bg-gray-900/90`}
         id="sidebarBackdrop"></div>
     </>
   );
