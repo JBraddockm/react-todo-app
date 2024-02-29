@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 
-export default function useClickOutside(ref, setOpen) {
+export default function useClickOutside(ref, ...setOpenFuncs) {
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (ref.current && !ref.current.contains(e.target)) {
-        setOpen(null);
+        setOpenFuncs.map((setOpen) => setOpen(null));
       }
     };
 
@@ -12,5 +12,5 @@ export default function useClickOutside(ref, setOpen) {
     return () => {
       document.removeEventListener('click', handleClickOutside);
     };
-  }, [ref, setOpen]);
+  }, [ref, setOpenFuncs]);
 }
