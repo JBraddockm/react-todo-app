@@ -1,13 +1,18 @@
+import { useState } from 'react';
 import Footer from 'src/components/Footer.jsx';
 import { NavBar } from 'src/components/NavBar.jsx';
 import Sidebar from 'src/components/Sidebar.jsx';
 
 export default function NavbarSidebarLayout({ children }) {
+  const [toggleSidebarMobile, setToggleSidebarMobile] = useState(false);
   return (
     <>
-      <NavBar />
+      <NavBar
+        toggleSidebarMobile={toggleSidebarMobile}
+        setToggleSidebarMobile={setToggleSidebarMobile}
+      />
       <div className="flex overflow-hidden bg-gray-50 pt-16 dark:bg-gray-900">
-        <Sidebar />
+        <Sidebar toggleSidebarMobile={toggleSidebarMobile} />
         <MainContent>{children}</MainContent>
       </div>
     </>
