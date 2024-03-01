@@ -24,8 +24,8 @@ export function Sidebar({ toggleSidebarMobile }) {
             handleTodoDropdownClick={handleTodoDropdownClick}
             openDropdownId={openDropdownId}
           />
+          <SidebarBottomMenu />
         </div>
-        <SidebarBottomMenu />
       </aside>
       <div
         className={`fixed inset-0 z-10 ${!toggleSidebarMobile && `hidden`} bg-gray-900/50 dark:bg-gray-900/90`}
