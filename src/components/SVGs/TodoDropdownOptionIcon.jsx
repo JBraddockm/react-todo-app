@@ -1,4 +1,4 @@
-import cn from 'src/utils/utils.js';
+import cn from 'src/utils/twMerge.js';
 
 export function TodoDropdownOptionIcon({ className }) {
   return (

@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import Footer from 'src/components/Footer.jsx';
+import { Sidebar } from 'src/components/aside';
+import { Footer } from 'src/components/footer';
 import { NavBar } from 'src/components/header';
-import Sidebar from 'src/components/Sidebar.jsx';
 
 export default function NavbarSidebarLayout({ children }) {
   const [toggleSidebarMobile, setToggleSidebarMobile] = useState(false);

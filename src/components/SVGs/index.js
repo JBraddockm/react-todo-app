@@ -1,6 +1,15 @@
 export { CloseIcon } from './CloseIcon.jsx';
+export { DashboardIcon } from './DashboardIcon.jsx';
+export { DropdownChevronIcon } from './DropdownChevronIcon.jsx';
+export { GitHubIcon } from './GitHubIcon.jsx';
+export { InfoIcon } from './InfoIcon.jsx';
+export { LinkedinIcon } from './LinkedinIcon.jsx';
+export { ProjectIcon } from './ProjectIcon.jsx';
+export { SearchIcon } from './SearchIcon.jsx';
+export { SettingsIcon } from './SettingsIcon.jsx';
 export { TodoCompleteCheckBoxIcon } from './TodoCompleteCheckBoxIcon.jsx';
 export { TodoDeleteIcon } from './TodoDeleteIcon.jsx';
 export { TodoDropdownOptionIcon } from './TodoDropdownOptionIcon.jsx';
 export { TodoHeaderLogo } from './TodoHeaderLogo.jsx';
 export { TodoInputIcon } from './TodoInputIcon.jsx';
+export { UserIcon } from './UserIcon.jsx';
