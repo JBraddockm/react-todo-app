@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Footer from 'src/components/Footer.jsx';
-import { NavBar } from 'src/components/NavBar.jsx';
+import { NavBar } from 'src/components/header';
 import Sidebar from 'src/components/Sidebar.jsx';
 
 export default function NavbarSidebarLayout({ children }) {
