@@ -6,7 +6,7 @@ export default function useToastNotificationContext() {
 
   if (!context) {
     throw new Error(
-      'ToastNotificationContext should be used within ToastNotificationContextProvider'
+      'ToastNotificationContext must be used within ToastNotificationContextProvider'
     );
   }
 
