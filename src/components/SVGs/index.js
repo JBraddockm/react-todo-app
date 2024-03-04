@@ -7,6 +7,8 @@ export { LinkedinIcon } from './LinkedinIcon.jsx';
 export { ProjectIcon } from './ProjectIcon.jsx';
 export { SearchIcon } from './SearchIcon.jsx';
 export { SettingsIcon } from './SettingsIcon.jsx';
+export { ToastErrorIcon } from './ToastErrorIcon.jsx';
+export { ToastSuccessIcon } from './ToastSuccessIcon.jsx';
 export { TodoCompleteCheckBoxIcon } from './TodoCompleteCheckBoxIcon.jsx';
 export { TodoDeleteIcon } from './TodoDeleteIcon.jsx';
 export { TodoDropdownOptionIcon } from './TodoDropdownOptionIcon.jsx';
