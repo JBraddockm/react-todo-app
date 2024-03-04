@@ -3,6 +3,7 @@ import dayjs from 'dayjs';
 import { TodoCompleteCheckBoxIcon } from 'src/components/SVGs';
 import TodoItemModal from 'src/features/todos/components/TodoItem/TodoItemModal.jsx';
 import useTodoContext from 'src/features/todos/hooks/useTodoContext.js';
+import useToastNotificationContext from 'src/hooks/useToastNotificationContext.js';
 
 import TodoItemDropdown from './TodoItemDropdown.jsx';
 
@@ -10,11 +11,20 @@ export default function TodoItem({ todo }) {
   const { todos, setTodos } = useTodoContext();
   const [isEditing, setIsEditing] = useState(false);
   const [isTodoModalOpen, setIsTodoModalOpen] = useState(false);
+  const { toastDispatch } = useToastNotificationContext();
+
+  function handleSuccessToastNotification() {
+    toastDispatch({
+      type: 'success',
+      message: `#${todo.id} Completed`
+    });
+  }
 
   function handleTodoComplete(id) {
     setTodos(
       todos.map((todo) => {
         if (todo.id === id) {
+          if (!todo.isDone) handleSuccessToastNotification();
           return { ...todo, isDone: !todo.isDone };
         } else {
           return todo;
