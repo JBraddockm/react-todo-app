@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { Sidebar } from 'src/components/aside';
 import { Footer } from 'src/components/footer';
 import { NavBar } from 'src/components/header';
+import ToastNotification from 'src/components/ToastNotification.jsx';
+import ToastNotificationContextProvider from 'src/context/ToastNotificationContext.jsx';
 
 export default function NavbarSidebarLayout({ children }) {
   const [toggleSidebarMobile, setToggleSidebarMobile] = useState(false);
@@ -13,7 +15,10 @@ export default function NavbarSidebarLayout({ children }) {
       />
       <div className="flex overflow-hidden bg-gray-50 pt-16 dark:bg-gray-900">
         <Sidebar toggleSidebarMobile={toggleSidebarMobile} />
-        <MainContent>{children}</MainContent>
+        <ToastNotificationContextProvider>
+          <ToastNotification />
+          <MainContent>{children}</MainContent>
+        </ToastNotificationContextProvider>
       </div>
     </>
   );
